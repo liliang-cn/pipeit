@@ -1,4 +1,4 @@
-module pipeit
+module github.com/liliang-cn/pipeit
 
 go 1.21
 

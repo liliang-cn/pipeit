@@ -11,7 +11,7 @@ Key features include:
 ## Installation
 
 ```bash
-go get pipeit
+go get github.com/liliang-cn/pipeit
 ```
 
 *(Note: If you are developing locally, ensure your `go.mod` is set up correctly to resolve the package).*
@@ -27,7 +27,7 @@ import (
 	"fmt"
 	"time"
 
-	"pipeit"
+	"github.com/liliang-cn/pipeit"
 )
 
 func main() {

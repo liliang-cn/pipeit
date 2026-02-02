@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"pipeit"
+	"github.com/liliang-cn/pipeit"
 )
 
 func main() {

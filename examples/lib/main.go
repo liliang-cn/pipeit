@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"time"
 
-	"pipeit"
+	"github.com/liliang-cn/pipeit"
 )
 
 // Example 1: Basic Usage

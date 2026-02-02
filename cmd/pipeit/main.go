@@ -7,7 +7,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"pipeit"
+	"github.com/liliang-cn/pipeit"
 )
 
 func main() {
