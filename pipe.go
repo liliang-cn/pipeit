@@ -18,6 +18,18 @@ import (
 	"github.com/creack/pty"
 )
 
+// Special terminal key sequences
+const (
+	KeyEnter     = "\r"
+	KeyArrowUp   = "\x1b[A"
+	KeyArrowDown = "\x1b[B"
+	KeyArrowLeft = "\x1b[D"
+	KeyArrowRight = "\x1b[C"
+	KeyTab       = "\t"
+	KeyEscape    = "\x1b"
+	KeyCtrlC     = "\x03"
+)
+
 // OutputHandler is a callback function type used to process output data
 // received from the managed process's stdout or stderr.
 type OutputHandler func([]byte)
@@ -277,4 +289,20 @@ func (p *ProcessManager) Pid() int {
 // This allows for advanced terminal operations like setting window size.
 func (p *ProcessManager) Session() *os.File {
 	return p.pty
+}
+
+// SetWindowSize sets the terminal window size for the PTY.
+// This is often required for complex interactive CLI tools to render correctly.
+func (p *ProcessManager) SetWindowSize(rows, cols uint16) error {
+	p.mu.Lock()
+	defer p.mu.Unlock()
+
+	if p.pty == nil {
+		return fmt.Errorf("no PTY session active")
+	}
+
+	return pty.Setsize(p.pty, &pty.Winsize{
+		Rows: rows,
+		Cols: cols,
+	})
 }
