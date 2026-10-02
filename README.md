@@ -89,3 +89,7 @@ EXAMPLE=bash go run examples/cli/main.go
 # Run python example
 EXAMPLE=python go run examples/cli/main.go
 ```
+
+## License
+
+MIT, see [LICENSE](LICENSE).
